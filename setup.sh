@@ -54,7 +54,7 @@ echo ""
 echo -e "${BLUE}${BOLD}[步骤 1/2] 请输入你的 API Key${NC}"
 echo -e "${YELLOW}(从呆呆鸟站点获取你的 Key)${NC}"
 echo ""
-read -rp "API Key: " API_KEY
+read -rp "API Key: " API_KEY </dev/tty
 
 if [ -z "$API_KEY" ]; then
   echo -e "${RED}错误: API Key 不能为空${NC}"
@@ -73,7 +73,7 @@ for i in "${!MODELS[@]}"; do
 done
 
 echo ""
-read -rp "请输入序号 (1-${#MODELS[@]}): " MODEL_CHOICE
+read -rp "请输入序号 (1-${#MODELS[@]}): " MODEL_CHOICE </dev/tty
 
 # 验证输入
 if ! [[ "$MODEL_CHOICE" =~ ^[0-9]+$ ]] || [ "$MODEL_CHOICE" -lt 1 ] || [ "$MODEL_CHOICE" -gt ${#MODELS[@]} ]; then
